@@ -1,0 +1,67 @@
+option java_multiple_files = true;
+option java_outer_classname = "Auth";
+option java_package = "com.voximplant.jsclient.auth";
+
+service Login {
+  rpc login(LoginRequest) returns (LoginResponse) {}
+}
+
+/**
+ * Request structure for the [Logon] method.
+ */
+message LoginRequest {
+
+  /**
+   * Unique Voximplant account's identifiers.
+   */
+  oneof user_identifier {
+
+    /**
+     * Name of the Voximplant account.
+     */
+    string account_name = 1;
+
+    /**
+     * Account email.
+     */
+    string account_email = 2;
+
+    /**
+     * Account ID.
+     */
+    int64 account_id = 3;
+  }
+
+  /**
+   * Voximplant account authorization method.
+   */
+  oneof user_authorization {
+
+    /**
+     * Account password.
+     */
+    string account_password = 4;
+
+    /**
+     * Account session ID.
+     */
+    string session_id = 5;
+
+    /**
+     * Account API key.
+     */
+    string api_key = 6;
+  }
+}
+
+/**
+ * Response structure for the [Login] method
+ */
+message LoginResponse {
+
+  /**
+   * JWT token for authorization purposes. The token should be passed as the `Authorization` header. Example: `Authorization:Bearer <token>`.
+   */
+  required string jwt_token = 1;
+}
+

@@ -1,0 +1,20 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+
+option java_multiple_files = true;
+option java_outer_classname = "Api";
+option java_package = "com.voximplant.jsclient.api";
+
+service Avatar {
+  rpc Conversation(stream UserUtterance) returns (stream AvatarResponse) {}
+}
+ 
+message UserUtterance {
+  string text = 1;
+}
+
+message AvatarResponse {
+  string utterance = 1;
+  bool isFinal = 2;
+  string customData = 3;
+}
