@@ -1,0 +1,25 @@
+{
+  "name": "avatars-nodejs-grpc-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client/index.js",
+  "scripts": {
+    "client": "node client/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vox"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "git+https://github.com/vox"
+  },
+  "homepage": "git+https://github.com/vox#readme",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.5.5",
+    "@grpc/proto-loader": "^0.6.9",
+    "undici": "^4.14.1"
+  }
+}
